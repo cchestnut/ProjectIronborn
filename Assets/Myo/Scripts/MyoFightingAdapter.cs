@@ -8,11 +8,12 @@ public class MyoFightingAdapter : MonoBehaviour
 	// Myo game object to connect with.
 	// This object must have a ThalmicMyo script attached.
 	public GameObject myo;
-	
+
 
 	ThalmicHub hub;
 	ThalmicMyo thalmicMyo;
 	GameObject player;
+	GameObject enemy;
 	//private InputMapping;
 	// Use this for initialization
 	void Start () {
@@ -28,8 +29,6 @@ public class MyoFightingAdapter : MonoBehaviour
 		if (thalmicMyo.isPaired) {
 			thalmicMyo.Vibrate(Thalmic.Myo.VibrationType.Short);
 		}
-		Debug.Log (thalmicMyo);
-		Debug.Log (myo);
 	}
 
 
@@ -38,15 +37,25 @@ public class MyoFightingAdapter : MonoBehaviour
 	void Update () {
 		hub = ThalmicHub.instance;
 
-		if(thalmicMyo != null && thalmicMyo.pose.ToString() == "Fist"){
-			if(player == null){
-				player = GameObject.FindGameObjectWithTag("Player");
-			}
-				player.animation.Play("punch_hi_left");
+		if(thalmicMyo != null && thalmicMyo.pose.ToString() == "Fist" && thalmicMyo.accelerometer.x > .5){
+			attack("Basic");
 		}
 				
 		if (Input.GetKeyDown ("q")) {
 			hub.ResetHub();
+		}
+	}
+
+	void attack(string attackType){
+		if (attackType.CompareTo ("Basic") == 0) {
+			if(player == null){
+				player = GameObject.FindGameObjectWithTag("Player");
+			}
+			if(enemy == null){
+				enemy = GameObject.FindGameObjectWithTag("Enemy");
+			}
+			player.SendMessage("Punch");
+			enemy.SendMessage("ReceiveMyoAcc", 5);
 		}
 	}
 }

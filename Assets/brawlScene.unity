@@ -2666,9 +2666,10 @@ GameObject:
   - 54: {fileID: 250779930}
   - 114: {fileID: 250779931}
   - 64: {fileID: 250779932}
+  - 65: {fileID: 250779933}
   m_Layer: 0
   m_Name: roBot
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2742,7 +2743,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &250779931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2754,8 +2755,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4545b355795d843b9807efd2fbd59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 30
+  impact: 0
+  attackString: punch_hi_left
 --- !u!64 &250779932
 MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 250779926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &250779933
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -2764,9 +2781,8 @@ MeshCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 0}
+  m_Size: {x: 1.79999995, y: 1.5, z: 1.79999995}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &251457440
 GameObject:
   m_ObjectHideFlags: 0
@@ -15591,7 +15607,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!64 &1451000420
 MeshCollider:
   m_ObjectHideFlags: 0
