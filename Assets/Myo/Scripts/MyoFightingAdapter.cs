@@ -14,6 +14,8 @@ public class MyoFightingAdapter : MonoBehaviour
 	ThalmicMyo thalmicMyo;
 	GameObject player;
 	GameObject enemy;
+	bool canMove = true;
+	bool hasConnected = false;
 	//private InputMapping;
 	// Use this for initialization
 	void Start () {
@@ -25,6 +27,8 @@ public class MyoFightingAdapter : MonoBehaviour
 
 		// Access the ThalmicMyo script attached to the Myo object.
 		thalmicMyo = myo.GetComponent<ThalmicMyo> ();
+		player = GameObject.FindGameObjectWithTag("Player");
+
 
 		if (thalmicMyo.isPaired) {
 			thalmicMyo.Vibrate(Thalmic.Myo.VibrationType.Short);
@@ -36,9 +40,22 @@ public class MyoFightingAdapter : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 		hub = ThalmicHub.instance;
-
-		if(thalmicMyo != null && thalmicMyo.pose.ToString() == "Fist" && thalmicMyo.accelerometer.x > .5){
-			attack("Basic");
+		if (!hasConnected && thalmicMyo.isPaired) {
+			thalmicMyo.Vibrate(Thalmic.Myo.VibrationType.Short);
+			hasConnected = true;
+		}
+		if (thalmicMyo == null)
+			return;
+		if (thalmicMyo.pose.ToString () == "Fist" && thalmicMyo.accelerometer.x > .5) {
+			canMove = false;
+			attack ("Basic");
+		} else if (canMove && thalmicMyo.pose.ToString() == "Fist") {
+			player.SendMessage("PerformMovement", true);
+		} else if (thalmicMyo.pose.ToString() == "FingersSpread") {
+			player.SendMessage("PerformMovement", false);
+			canMove = true;
+		} else if (thalmicMyo.pose.ToString() == "WaveIn"){
+			canMove = false;
 		}
 				
 		if (Input.GetKeyDown ("q")) {
@@ -46,6 +63,9 @@ public class MyoFightingAdapter : MonoBehaviour
 		}
 	}
 
+	void setCanMove(bool val){
+		canMove = val;
+	}
 	void attack(string attackType){
 		if (attackType.CompareTo ("Basic") == 0) {
 			if(player == null){
