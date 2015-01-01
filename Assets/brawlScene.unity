@@ -15582,7 +15582,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1451000410}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b61639bf9a3b6304da248201e78fdd8a, type: 3}
   m_Name: 
@@ -15627,7 +15627,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1740738938}
   m_GameObject: {fileID: 1451000410}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab0b7b6ac98ab4b35b65cd9fa62c457f, type: 3}
   m_Name: 
@@ -15640,7 +15640,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1451000410}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9db6421691659684d915086e04c493c2, type: 3}
   m_Name: 
@@ -15650,11 +15650,34 @@ MonoBehaviour:
   emulateMouseInEditor: 1
   axes: 0
   nogyrotexture: {fileID: 0}
+  offset: 0
+  max_offset: .00200000009
   cameraleft: {fileID: 116977499}
   cameraright: {fileID: 1491822971}
   zoom: .100000001
+  IPDCorrection: 0
+  aspectRatio: 0
   znear: .100000001
   zfar: 10000
+  time_since_last_fullscreen: 0
+  is_tablet: 0
+  q0: 0
+  q1: 0
+  q2: 0
+  q3: 0
+  m0: 0
+  m1: 0
+  m2: 0
+  rot: {x: 0, y: 0, z: 0, w: 0}
+  show_gyro_error_message: 0
+  errormessage: 
+  sensitivityX: 15
+  sensitivityY: 15
+  minimumX: -360
+  maximumX: 360
+  minimumY: -90
+  maximumY: 90
+  rotationY: 0
 --- !u!1 &1459016392
 GameObject:
   m_ObjectHideFlags: 0
@@ -17322,7 +17345,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1740738938}
   m_GameObject: {fileID: 1603198547}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 917262f8ecbe7423583085eb03acfbb0, type: 3}
   m_Name: 
@@ -18903,6 +18926,14 @@ Prefab:
       value: -.98480773
       objectReference: {fileID: 0}
     - target: {fileID: 11418864, guid: d95c6f63eaedc7e41a4b2e07d5507a8d, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418866, guid: d95c6f63eaedc7e41a4b2e07d5507a8d, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418870, guid: d95c6f63eaedc7e41a4b2e07d5507a8d, type: 2}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
