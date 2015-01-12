@@ -49,13 +49,13 @@ public class MyoFightingAdapter : MonoBehaviour
 		if (thalmicMyo.pose.ToString () == "Fist" && thalmicMyo.accelerometer.x > .5) {
 			canMove = false;
 			attack ("Basic");
-		} else if (canMove && thalmicMyo.pose.ToString() == "Fist") {
+		} else if (canMove && thalmicMyo.pose.ToString() == "WaveIn") {
 			player.SendMessage("PerformMovement", true);
-		} else if (thalmicMyo.pose.ToString() == "FingersSpread") {
+		} else if (thalmicMyo.pose.ToString() == "WaveOut") {
 			player.SendMessage("PerformMovement", false);
 			canMove = true;
-		} else if (thalmicMyo.pose.ToString() == "WaveIn"){
-			canMove = false;
+		} else if (thalmicMyo.pose.ToString() == "FingersSpread"){
+			canMove = true;
 		}
 				
 		if (Input.GetKeyDown ("q")) {
