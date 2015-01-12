@@ -29,7 +29,6 @@ public class MyoFightingAdapter : MonoBehaviour
 		thalmicMyo = myo.GetComponent<ThalmicMyo> ();
 		player = GameObject.FindGameObjectWithTag("Player");
 
-
 		if (thalmicMyo.isPaired) {
 			thalmicMyo.Vibrate(Thalmic.Myo.VibrationType.Short);
 		}
@@ -40,7 +39,7 @@ public class MyoFightingAdapter : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 		hub = ThalmicHub.instance;
-		if (!hasConnected && thalmicMyo.isPaired) {
+		if (!hasConnected && thalmicMyo && thalmicMyo.isPaired) {
 			thalmicMyo.Vibrate(Thalmic.Myo.VibrationType.Short);
 			hasConnected = true;
 		}
@@ -49,11 +48,15 @@ public class MyoFightingAdapter : MonoBehaviour
 		if (thalmicMyo.pose.ToString () == "Fist" && thalmicMyo.accelerometer.x > .5) {
 			canMove = false;
 			attack ("Basic");
-		} else if (canMove && thalmicMyo.pose.ToString() == "WaveIn") {
-			player.SendMessage("PerformMovement", true);
-		} else if (thalmicMyo.pose.ToString() == "WaveOut") {
-			player.SendMessage("PerformMovement", false);
-			canMove = true;
+		} else if (canMove && thalmicMyo.pose.ToString() == "WaveOut") {
+			if(thalmicMyo.gyroscope.magnitude > 30){
+				bool dir = true;
+				player.SendMessage("PerformMovement", dir);
+			}
+			else if(thalmicMyo.gyroscope.magnitude < 10){
+				bool dir = false;
+				player.SendMessage("PerformMovement", dir);
+			}
 		} else if (thalmicMyo.pose.ToString() == "FingersSpread"){
 			canMove = true;
 		}

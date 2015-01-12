@@ -27,6 +27,7 @@ function Update () {
 		directionVector = directionVector * directionLength;
 	}
 	// Apply the direction to the CharacterMotor
+	if( directionVector.y != 0 ) motor.grounded = false;
 	motor.inputMoveDirection = transform.rotation * directionVector;
 	motor.inputJump = Input.GetButton("Jump");
 	directionVector = new Vector3(Input.GetAxis("Horizontal"), 0,

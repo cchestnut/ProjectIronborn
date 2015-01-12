@@ -119,7 +119,6 @@ public class ThalmicHub : MonoBehaviour
 
     private bool createHub () {
         try {
-			Debug.Log("Say it with ya chest");
 			_hub = new Thalmic.Myo.Hub (applicationIdentifier, hub_MyoPaired);
 
             _hub.SetLockingPolicy (lockingPolicy);
@@ -145,7 +144,7 @@ public class ThalmicHub : MonoBehaviour
     void hub_MyoPaired (object sender, Thalmic.Myo.MyoEventArgs e)
     {
         foreach (ThalmicMyo myo in _myos) {
-            if (myo.internalMyo == null) {
+			if (myo.internalMyo == null) {
                 myo.internalMyo = e.Myo;
                 break;
             }

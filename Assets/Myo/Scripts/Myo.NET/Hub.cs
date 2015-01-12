@@ -29,7 +29,6 @@ namespace Thalmic.Myo
 
             if (libmyo.init_hub(out _handle, applicationIdentifier, IntPtr.Zero) != libmyo.Result.Success)
             {
-				Debug.Log("great...");
                 throw new InvalidOperationException("Unable to initialize Hub.");
             }
 

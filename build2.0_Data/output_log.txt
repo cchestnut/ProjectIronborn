@@ -18,14 +18,10 @@ Platform assembly: C:\Users\Chestnut\Documents\New Unity Project\build2.0_Data\M
 Loading C:\Users\Chestnut\Documents\New Unity Project\build2.0_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\Chestnut\Documents\New Unity Project\build2.0_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Chestnut\Documents\New Unity Project\build2.0_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.314 seconds
+- Completed reload, in  0.258 seconds
 desktop: 1920x1080 59Hz; virtual: 3200x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Chestnut\Documents\New Unity Project\build2.0_Data\Managed\System.Core.dll (this message is harmless)
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
-ThalmicHub failed to initialize.
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
 Platform assembly: C:\Users\Chestnut\Documents\New Unity Project\build2.0_Data\Managed\Boo.Lang.dll (this message is harmless)
